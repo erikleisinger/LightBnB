@@ -93,7 +93,7 @@ exports.getAllReservations = getAllReservations;
  * Get all properties.
  * @param {{}} options An object containing query options.
  * @param {*} limit The number of results to return.
- * @return {Promise<[{}]>}  A promise to the properties.
+ * @return The returned properties from SQL db
  */
 const getAllProperties = function(options, limit = 10) {
   const queryParams = [];
@@ -165,7 +165,7 @@ exports.getAllProperties = getAllProperties;
 /**
  * Add a property to the database
  * @param {{}} property An object containing all of the property details.
- * @return {Promise<{}>} A promise to the property.
+ * @return The newly added property.
  */
 const addProperty = function(property) {
   console.log(property)
