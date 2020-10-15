@@ -66,8 +66,6 @@ const addUser =  function(user) {
 }
 exports.addUser = addUser;
 
-/// Reservations
-
 /**
  * Get all reservations for a single user.
  * @param {string} guest_id The id of the user.
