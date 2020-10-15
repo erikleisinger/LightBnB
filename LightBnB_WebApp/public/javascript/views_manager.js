@@ -4,15 +4,21 @@ $(() => {
 
   window.views_manager = {};
 
-  window.views_manager.show = function(item) {
+  window.views_manager.show = function (item) {
     $newPropertyForm.detach();
     $propertyListings.detach();
     $searchPropertyForm.detach();
     $logInForm.detach();
     $signUpForm.detach();
+    $makeReservation.detach();
+    $success.detach();
 
     switch (item) {
       case 'listings':
+        $propertyListings.appendTo($main);
+        break;
+      case 'listings_redirect':
+        $success.appendTo($main);
         $propertyListings.appendTo($main);
         break;
       case 'newProperty':
@@ -27,6 +33,9 @@ $(() => {
       case 'signUp':
         $signUpForm.appendTo($main);
         break;
+      case 'makeReservation':
+        $makeReservation.appendTo($main);
+        break;
       case 'error': {
         const $error = $(`<p>${arguments[1]}</p>`);
         $error.appendTo('body');
@@ -34,10 +43,10 @@ $(() => {
           $error.remove();
           views_manager.show('listings');
         }, 2000);
-        
+
         break;
       }
     }
   }
-  
+
 });

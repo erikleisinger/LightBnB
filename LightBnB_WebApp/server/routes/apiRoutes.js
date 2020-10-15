@@ -29,7 +29,18 @@ module.exports = function(router, database) {
     const userId = req.session.userId;
     database.addProperty({...req.body, owner_id: userId})
       .then(property => {
-        console.log(`Received this property back: ${JSON.stringify(property, null, 2)}`)
+        res.send(property);
+      })
+      .catch(e => {
+        console.error(e);
+        res.send(e)
+      });
+  });
+
+  router.post('/reservations', (req, res) => {
+    const userId = req.session.userId;
+    database.addReservation({...req.body, guest_id: userId})
+      .then(property => {
         res.send(property);
       })
       .catch(e => {

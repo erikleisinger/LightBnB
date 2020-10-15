@@ -28,6 +28,7 @@ $(() => {
           <li>${user.name}</li>
           <li class="create_listing_button">Create Listing</li>
           <li class="my_listing_button">My Listings</li>
+          <li class="make_reservation_button">Make Reservation</li>
           <li class="my_reservations_button">My Reservations</li>
           <li class="logout_button">Log Out</li>
         </ul>
@@ -61,6 +62,10 @@ $(() => {
         propertyListings.addProperties(json.properties);
         views_manager.show('listings');
     });
+  });
+
+  $("header").on("click", '.make_reservation_button', function() {
+    views_manager.show('makeReservation');
   });
 
   $("header").on("click", '.home', function() {
