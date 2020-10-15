@@ -27,6 +27,7 @@ module.exports = function(router, database) {
     const userId = req.session.userId;
     database.addProperty({...req.body, owner_id: userId})
       .then(property => {
+        console.log(`Received this property back: ${JSON.stringify(property, null, 2)}`)
         res.send(property);
       })
       .catch(e => {
